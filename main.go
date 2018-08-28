@@ -18,6 +18,8 @@ func main() {
 	}
 }
 
+// func twoSum returns an array of indices of elements
+// summing to target.
 func twoSum(nums []int, target int) []int {
 	var ret []int
 	idx := 0
@@ -36,6 +38,8 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
+// func addTwoNumbers adds two numbers, the digits of which
+// are represented as nodes in a singly-linked list.
 func addTwoNumbers(l1, l2 *ListNode) *ListNode {
 	if l1.value == 0 && l1.next == nil {
 		return l2
