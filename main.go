@@ -3,19 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	nodeA := new(ListNode)
-	nodeA = &ListNode{value: 1, next: nil}
-	nodeB := &ListNode{value: 8, next: nil}
-	nodeA.next = nodeB
-	for node := nodeA; node != nil; node = node.next {
-		fmt.Println("NodeA is equal to ", node)
-	}
-	node1 := new(ListNode)
-	node1 = &ListNode{value: 0, next: nil}
-	retNode := addTwoNumbers(nodeA, node1)
-	for node := retNode; node != nil; node = node.next {
-		fmt.Println("retNode is equal to ", node)
-	}
+	sub := lengthOfLongestSubstring("au")
+	fmt.Println(sub)
 }
 
 // func twoSum returns an array of indices of elements
@@ -98,6 +87,83 @@ func addTwoNumbers(l1, l2 *ListNode) *ListNode {
 			return ln
 		}
 	}
+}
+
+func lengthOfLongestSubstring(s string) int {
+	// Easy cases
+	if len(s) == 0 {
+		return 0
+	}
+	if len(s) == 1 {
+		return 1
+	}
+	var lengths []int
+	var length int
+	for i := 0; i < len(s)-1; i++ {
+		seen := make(map[byte]bool)
+		length = 0
+		for j := i; j <= len(s)-1; j++ {
+			_, ok := seen[s[j]]
+			if !ok {
+				length++
+				seen[s[j]] = true
+			} else {
+				lengths = append(lengths, length)
+				break
+			}
+		}
+	}
+	if length != 0 {
+		lengths = append(lengths, length)
+	}
+	if len(lengths) == 0 {
+		return 0
+	}
+
+	max := maxInt(lengths)
+	return max
+}
+
+/*
+func lengthOfLongestSubstring(s string) int {
+	if len(s) == 0 || len(s) == 1 {
+		if len(s) == 0 {
+			return 0
+		}
+		return 1
+	}
+	lengths := []int{}
+	for i := 0; i <= len(s)-1; i++ {
+		seen := make(map[byte]bool)
+		length := 0
+		for j := i; j <= len(s)-1; j++ {
+			_, ok := seen[s[j]]
+			if !ok {
+				length++
+				fmt.Printf("The length is now %v\n", length)
+				seen[s[j]] = true
+				continue
+			}
+			lengths = append(lengths, length)
+			break
+		}
+	}
+	if len(lengths) == 0 {
+		return 0
+	}
+	max := maxInt(lengths)
+	return max
+}
+*/
+
+func maxInt(slc []int) int {
+	max := slc[0]
+	for _, v := range slc {
+		if v > max {
+			max = v
+		}
+	}
+	return max
 }
 
 // ListNode implements a singly-linked list
