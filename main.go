@@ -5,6 +5,8 @@ import "fmt"
 func main() {
 	sub := lengthOfLongestSubstring("au")
 	fmt.Println(sub)
+	test := "hello"
+	fmt.Println(test[0:4])
 }
 
 // func twoSum returns an array of indices of elements
