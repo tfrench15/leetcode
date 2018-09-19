@@ -20,3 +20,21 @@ func TestRomanToInt(t *testing.T) {
 		}
 	}
 }
+func TestIntToRoman(t *testing.T) {
+	tests := []struct {
+		num int
+		exp string
+	}{
+		{3, "III"},
+		{4, "IV"},
+		{9, "IX"},
+		{58, "LVIII"},
+		{1994, "MCMXCIV"},
+	}
+	for _, test := range tests {
+		ans := intToRoman(test.num)
+		if ans != test.exp {
+			t.Errorf("Error: expected %v, got %v", test.exp, ans)
+		}
+	}
+}
