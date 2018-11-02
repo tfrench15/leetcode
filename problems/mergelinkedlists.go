@@ -49,9 +49,3 @@ func mergeTwoLists(l1, l2 *ListNode) *ListNode {
 		}
 	}
 }
-
-// ListNode implements a linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}

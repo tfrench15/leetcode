@@ -1,8 +1,6 @@
-package main
+package answers
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestTwoSum(t *testing.T) {
 	tt := []struct {
@@ -26,29 +24,6 @@ func TestTwoSum(t *testing.T) {
 			if actual[i] != expected[i] {
 				t.Errorf("Error: actual is equal to %v, expected is equal to %v", actual, expected)
 			}
-		}
-	}
-}
-
-func TestAddTwoNumbers(t *testing.T) {
-}
-
-func TestLengthOfLongestSubstring(t *testing.T) {
-	tt := []struct {
-		str string
-		ans int
-	}{
-		{"abcabcbb", 3},
-		{"bbbbbb", 1},
-		{"pwwkew", 3},
-		{" ", 1},
-		{"", 0},
-		{"au", 2},
-	}
-	for _, tc := range tt {
-		ret := lengthOfLongestSubstring(tc.str)
-		if ret != tc.ans {
-			t.Errorf("Error: expected %v, got %v", tc.ans, ret)
 		}
 	}
 }
